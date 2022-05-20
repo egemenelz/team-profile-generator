@@ -39,11 +39,6 @@
       background-color: rgb(224, 225, 228);
   }
 
-  .test{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
   
   body {
     background-color: var(--secondary);
