@@ -19,6 +19,11 @@ const questions = [
 ]
 
 function managerInfo() {
+    console.log(`
+    =================
+    Add a New Manager
+    =================
+    `);
     inquirer
         .prompt(
             {
@@ -60,6 +65,11 @@ function managerInfo() {
 }
 
 function engineerInfo() {
+    console.log(`
+    ==================
+    Add a New Engineer
+    ==================
+    `);
     inquirer
         .prompt(
             {
@@ -100,6 +110,11 @@ function engineerInfo() {
         })
 }
 function internInfo() {
+    console.log(`
+    ================
+    Add a New Intern
+    ================
+    `);
     inquirer
         .prompt(
             {
@@ -141,6 +156,12 @@ function internInfo() {
 }
 
 function addNew() {
+    console.log(`
+    ======================
+    Think Before Answer It 
+    ======================
+    `);
+
     inquirer
         .prompt({
             type: 'list',
@@ -160,3 +181,4 @@ function addNew() {
 }
 
 
+managerInfo();
