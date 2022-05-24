@@ -1,3 +1,9 @@
+/**
+ * Every role has unique definitaions,
+ * this is how we can choose what to do add when we choose different kind role
+ * @param {data is generate in index.js} data 
+ * @returns 
+ */
 const roleGenerate = data => {
     if(data.getRole() === "Manager"){
         return `Office No: ${data.getOfficeNumber()}`
@@ -9,6 +15,13 @@ const roleGenerate = data => {
     }
 }
 
+/**
+ * This is generates the card box
+ * if there is no data it will return empty string
+ * otherwise, will add data specified locations
+ * @param {data is generated in index.js} data 
+ * @returns 
+ */
 const generateCard = data => {
 
     if(!data){
@@ -34,10 +47,14 @@ const generateCard = data => {
         </div>
         `
 }
-
+/**
+ * This is help us to generate HTML file, 
+ * We will have array as data from index.js and we have to run thru and generate a card how many we need
+ * @param {data is generated in index.js} templateData 
+ * @returns 
+ */
 module.exports = templateData => {
-    console.log(templateData);
-    // this will create three variables based on data in templateData
+    
     var newCard = '';
     for (let i = 0; i < templateData.length; i++) {
         newCard += generateCard(templateData[i]);

@@ -1,5 +1,8 @@
 const Engineer = require('../lib/Engineer');
 
+/**
+ * Testing the engineer object with valid entry
+ */
 test('creates a engineer object', () => {
     const engineer = new Engineer('Egemen', 1234, 'egemen@test.com', 'egemenelz')
 
@@ -9,6 +12,9 @@ test('creates a engineer object', () => {
     expect(engineer.getRole()).toBe("Engineer")
 })
 
+/**
+ * Testing the engineer object with random entries
+ */
 test('creates a random engineer object', () => {
     const engineer = new Engineer('', 1, '', '');
 

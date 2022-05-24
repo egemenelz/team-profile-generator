@@ -7,10 +7,13 @@ const Manager = require('./lib/Manager');
 const templateData = require('./src/page-template');
 const { writeFile, copyFile } = require('./src/generate-site');
 
+// EmailRegex for validate the email structure
 var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+// Empty team array for adding every team members inside and write to page-template
 const team = [];
 
+// Questions for every role
 const questions = [
     'What is your name?',
     'What is your employee ID ?',
@@ -20,6 +23,7 @@ const questions = [
     'What is your office number ?'
 ]
 
+// Enter manager info with help of inquirer thru CLI
 function managerInfo() {
     console.log(`
     =================
@@ -70,6 +74,8 @@ function managerInfo() {
 
 }
 
+
+// Enter engineer info with help of inquirer thru CLI
 function engineerInfo() {
     console.log(`
     ==================
@@ -118,6 +124,8 @@ function engineerInfo() {
             addNew();
         })
 }
+
+// Enter interm info with help of inquirer thru CLI
 function internInfo() {
     console.log(`
     ================
@@ -167,6 +175,7 @@ function internInfo() {
         })
 }
 
+// Quastinare for next move,
 function addNew() {
     console.log(`
     ======================
@@ -195,5 +204,5 @@ function addNew() {
         })
 }
 
-
+// Kicks off the application
 managerInfo();

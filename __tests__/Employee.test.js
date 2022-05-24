@@ -1,5 +1,8 @@
 const Employee = require('../lib/Employee');
 
+/**
+ * Testing the employee object with valid entry
+ */
 test('creates a employee object', () => {
     const employee = new Employee('Egemen', 1232452, 'egemen@test.com')
 
@@ -9,6 +12,10 @@ test('creates a employee object', () => {
     expect(employee.getRole()).toBe("Employee")
 })
 
+
+/**
+ * Testing the employee object with random entry
+ */
 test('creates a random employee object', () => {
     const employee = new Employee(' ', 12345, ' ');
 

@@ -1,5 +1,8 @@
 const Intern = require('../lib/Intern');
 
+/**
+ * Testing the intern object with valid entries
+ */
 test('creates a intern object', () => {
     const intern = new Intern("Egemen", 1, 'egemen@test.com', 'University of Miami');
 
@@ -11,6 +14,9 @@ test('creates a intern object', () => {
 
 })
 
+/**
+ * Testing the intern object with random entries
+ */
 test('creates a random manager object', () => {
     const intern = new Intern('', 1, '', '', '');
 

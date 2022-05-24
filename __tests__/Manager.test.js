@@ -1,5 +1,8 @@
 const Manager = require('../lib/Manager');
 
+/**
+ * Testing the Manager object with valid entries
+ */
 test('creates a manager object', () => {
     const manager = new Manager('Egemen', 1234, 'egemen@test.com', 1)
 
@@ -11,6 +14,9 @@ test('creates a manager object', () => {
 
 })
 
+/**
+ * Testing the Manager object with random entries
+ */
 test('creates a random manager object', () => {
     const manager = new Manager(' ', 12345, ' ', 1, '');
 
