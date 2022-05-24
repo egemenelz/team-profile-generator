@@ -7,15 +7,16 @@ test('creates a manager object', () => {
     expect(manager.id).toEqual(expect.any(Number))
     expect(manager.email).toBe('egemen@test.com')
     expect(manager.officeNumber).toBe(1)
-    expect(manager.getRole()).toBe(Manager)
+    expect(manager.getRole()).toBe("Manager")
 
 })
 
 test('creates a random manager object', () => {
-    const manager = new Manager(' ', 12345, ' ', 1);
+    const manager = new Manager(' ', 12345, ' ', 1, '');
 
     expect(manager.name).toEqual(expect.any(String));
     expect(manager.id).toEqual(expect.any(Number));
     expect(manager.email).toEqual(expect.any(String));
     expect(manager.officeNumber).toEqual(expect.any(Number));
+    expect(manager.getRole()).toEqual(expect.any(String));
 })

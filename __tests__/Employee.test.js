@@ -6,7 +6,7 @@ test('creates a employee object', () => {
     expect(employee.name).toBe('Egemen');
     expect(employee.id).toEqual(expect.any(Number))
     expect(employee.email).toBe('egemen@test.com')
-    expect(employee.getRole()).toBe(Employee)
+    expect(employee.getRole()).toBe("Employee")
 })
 
 test('creates a random employee object', () => {
@@ -15,5 +15,5 @@ test('creates a random employee object', () => {
     expect(employee.name).toEqual(expect.any(String));
     expect(employee.id).toEqual(expect.any(Number));
     expect(employee.email).toEqual(expect.any(String));
-
+    expect(employee.getRole()).toEqual(expect.any(String))
 })

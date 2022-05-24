@@ -1,6 +1,7 @@
 # Team Profile Generator
 
-![Project Image](./src/Screen%20Shot%202022-05-23%20at%2010.42.55%20PM.png)
+![Project Gif](./src/image/TeamProfileGenerator.gif)
+
 ## License and Badges
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -34,3 +35,6 @@ Build your own Team Profile structure as soon as possible.
 For contribution, you can reach me out from email or github.
 
 Any addittional questions, You can reach me at https://github.com/egemenelz
+
+
+![Project Image](./src/image/Screen%20Shot%202022-05-23%20at%2010.42.55%20PM.png)
