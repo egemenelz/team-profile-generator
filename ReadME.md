@@ -1,6 +1,5 @@
 # Team Profile Generator
-
-![Project Gif](./src/image/TeamProfileGenerator.gif)
+<img src="./src/image/TeamProfileGenerator.gif" alt="Project Image" width="650"/>
 
 ## License and Badges
 
