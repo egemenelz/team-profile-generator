@@ -1,18 +1,36 @@
-GIVEN a command-line application that accepts user input
-WHEN I am prompted for my team members and their information
-THEN an HTML file is generated that displays a nicely formatted team roster based on user input
-WHEN I click on an email address in the HTML     
-THEN my default email program opens and populates the TO field of the email with the address
-WHEN I click on the GitHub username
-THEN that GitHub profile opens in a new tab
+# Team Profile Generator
 
-WHEN I start the application
-THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
-WHEN I enter the team manager’s name, employee ID, email address, and office number
-THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team
-WHEN I select the engineer option
-THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu
-WHEN I select the intern option
-THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
-WHEN I decide to finish building my team
-THEN I exit the application, and the HTML is generated
+![Project Image](./src/Screen%20Shot%202022-05-23%20at%2010.42.55%20PM.png)
+## License and Badges
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/egemenelz/team-profile-generator)
+![Language](https://img.shields.io/badge/language-JavaScript-yellow)
+
+## Description
+
+This project helps managers to create team profile quickly. 
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+
+## Installation
+
+The steps to install/use the project are simple: clone the project on your machine and run it in an environment with node.js installe d using a command of 'node index'.
+
+## Usage
+
+When you have cloned the project, make sure you are in the source folder on the terminal and run the 'node index' command.
+
+## Features
+
+Build your own Team Profile structure as soon as possible.
+
+## How to Contribute
+
+For contribution, you can reach me out from email or github.
+
+Any addittional questions, You can reach me at https://github.com/egemenelz

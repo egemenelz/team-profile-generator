@@ -1,19 +1,34 @@
-const generateManagerInfo = managerInfo =>{
+const roleGenerate = data => {
+    if(data.getRole() === "Manager"){
+        return `Office No: ${data.getOfficeNumber()}`
+    }else if (data.getRole() === "Engineer"){
+        return `GitHub: <a href="https://github.com/${data.getGithub()}"
+        target="_blank">${data.getGithub()}</a>`
+    }else if (data.getRole() === "Intern"){
+        return `School: ${data.getSchool()}`
+    }
+}
+
+const generateCard = data => {
+
+    if(!data){
+        return ' ';
+    }
     return `
     <div class="con1 bg-light box">
             <div class="header-box">
-                <p>Employee Name</p>
-                <p>Employee Role</p>
+                <h3>${data.getName()}</h3>
+                <h4>${data.getRole()}</h4>
             </div>
             <div class="con2 m-3">
                 <div class="small-box">
-                    <p>ID: Egemen Eliz</p>
+                    <p>ID: ${data.getId()}</p>
                 </div>
                 <div class="small-box">
-                    <p>Email : egemenelz@gmail.com</p>
+                    <p>Email : <a href="mailto:${data.getEmail()}">${data.getEmail()}</a></p>
                 </div>
                 <div class="small-box">
-                    <p>Office Number: 1</p>
+                    ${roleGenerate(data)}
                 </div>
             </div>
         </div>
@@ -23,7 +38,11 @@ const generateManagerInfo = managerInfo =>{
 module.exports = templateData => {
     console.log(templateData);
     // this will create three variables based on data in templateData
-    const { projects, about, ...header } = templateData;
+    var newCard = '';
+    for (let i = 0; i < templateData.length; i++) {
+        newCard += generateCard(templateData[i]);
+        
+    }
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -44,12 +63,11 @@ module.exports = templateData => {
             <h1 class="page-title text-light py-2 px-3">Scrum Team</h1>
         </div>
     </header>
-      <main class="container my-5 test">
-      ${generateAbout(about)}
-      ${generateProjects(projects)}
+    <main class="container my-5 flex-row justify-space-between "> 
+      ${newCard}
       </main>
       <footer class="container text-center py-3">
-        <h3 class="text-dark">&copy; ${new Date().getFullYear()} by ${header.name}</h3>
+        <h3 class="text-dark">&copy; ${new Date().getFullYear()} by Egemen Eliz</h3>
       </footer>
     </body>
     </html>

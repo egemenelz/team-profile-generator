@@ -4,7 +4,7 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 
-const tempData = require('./src/page-template');
+const templateData = require('./src/page-template');
 const { writeFile, copyFile } = require('./src/generate-site');
 
 var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -189,6 +189,8 @@ function addNew() {
                 console.log('You are done with building team.. Thanks!');
                 console.log('You can find the index.html inside the dist folder');
                 console.log(team)
+                writeFile(templateData(team));
+                copyFile();
             }
         })
 }
