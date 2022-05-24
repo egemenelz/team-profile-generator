@@ -4,8 +4,10 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 
-const tempData = require('./src/page-template')
-const { writeFile, copyFile } = require('./src/generate-site')
+const tempData = require('./src/page-template');
+const { writeFile, copyFile } = require('./src/generate-site');
+
+var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 const team = [];
 
@@ -24,11 +26,11 @@ function managerInfo() {
     Add a New Manager
     =================
     `);
-    inquirer
-        .prompt(
+    return inquirer
+        .prompt([
             {
                 type: 'text',
-                name: 'managerName',
+                name: 'name',
                 message: questions[0],
                 validate: questionInput => {
                     if (questionInput) { return true; } else { console.log('Please enter your name!!'); return false; }
@@ -36,30 +38,34 @@ function managerInfo() {
             },
             {
                 type: 'text',
-                name: 'managerID',
+                name: 'id',
                 message: questions[1],
                 validate: questionInput => {
-                    if (questionInput) { return true; } else { console.log('Please enter your employee ID!!'); return false; }
+                    if (/^\d+$/.test(questionInput)) { return true; } else { console.log('Please enter your id number!!'); return false; }
                 }
             },
             {
                 type: 'text',
-                name: 'managerEmail',
+                name: 'email',
                 message: questions[2],
                 validate: questionInput => {
-                    if (questionInput) { return true; } else { console.log('Please enter your email address!!'); return false; }
+                    if (emailRegex.test(questionInput)) { return true; } else { console.log('Please enter valid email address!!'); return false; }
                 }
             },
             {
                 type: 'text',
-                name: 'managerOfficeNo',
+                name: 'officeNo',
                 message: questions[5],
                 validate: questionInput => {
-                    if (questionInput) { return true; } else { console.log('Please enter your office number!!'); return false; }
+                    if (/^\d+$/.test(questionInput)) { return true; } else { console.log('Please enter your office number!!'); return false; }
                 }
-            })
-        .then(({ managerName, managerID, managerEmail, managerOfficeNo }) => {
-            this.manager = new Manager(managerName, managerID, managerEmail, managerOfficeNo)
+            }
+        ])
+        .then(answers => {
+            const { name, id, email, officeNo } = answers;
+            const manager = new Manager(name, id, email, officeNo)
+            team.push(manager);
+            addNew();
         })
 
 }
@@ -70,11 +76,11 @@ function engineerInfo() {
     Add a New Engineer
     ==================
     `);
-    inquirer
-        .prompt(
+    return inquirer
+        .prompt([
             {
                 type: 'text',
-                name: 'engineerName',
+                name: 'name',
                 message: questions[0],
                 validate: questionInput => {
                     if (questionInput) { return true; } else { console.log('Please enter your name!!'); return false; }
@@ -82,31 +88,34 @@ function engineerInfo() {
             },
             {
                 type: 'text',
-                name: 'engineerID',
+                name: 'id',
                 message: questions[1],
                 validate: questionInput => {
-                    if (questionInput) { return true; } else { console.log('Please enter your employee ID!!'); return false; }
+                    if (/^\d+$/.test(questionInput)) { return true; } else { console.log('Please enter integer!!'); return false; }
                 }
             },
             {
                 type: 'text',
-                name: 'engineerEmail',
+                name: 'email',
                 message: questions[2],
                 validate: questionInput => {
-                    if (questionInput) { return true; } else { console.log('Please enter your email address!!'); return false; }
+                    if (emailRegex.test(questionInput)) { return true; } else { console.log('Please enter your email address!!'); return false; }
                 }
             },
             {
                 type: 'text',
-                name: 'engineerGithub',
+                name: 'github',
                 message: questions[3],
                 validate: questionInput => {
                     if (questionInput) { return true; } else { console.log('Please enter your gitHub account!!'); return false; }
                 }
-            })
-        .then(({ engineerName, engineerID, engineerEmail, engineerSchool }) => {
-            this.Engineer = new Engineer(engineerName, engineerID, engineerEmail, engineerSchool)
-            this.addNew();
+            }
+        ])
+        .then(answers => {
+            const { name, id, email, github } = answers;
+            const engineer = new Engineer(name, id, email, github)
+            team.push(engineer)
+            addNew();
         })
 }
 function internInfo() {
@@ -115,11 +124,11 @@ function internInfo() {
     Add a New Intern
     ================
     `);
-    inquirer
-        .prompt(
+    return inquirer
+        .prompt([
             {
                 type: 'text',
-                name: 'internName',
+                name: 'name',
                 message: questions[0],
                 validate: questionInput => {
                     if (questionInput) { return true; } else { console.log('Please enter your name!!'); return false; }
@@ -127,31 +136,34 @@ function internInfo() {
             },
             {
                 type: 'text',
-                name: 'internID',
+                name: 'id',
                 message: questions[1],
                 validate: questionInput => {
-                    if (questionInput) { return true; } else { console.log('Please enter your employee ID!!'); return false; }
+                    if (/^\d+$/.test(questionInput)) { return true; } else { console.log('Please enter your employee ID!!'); return false; }
                 }
             },
             {
                 type: 'text',
-                name: 'internEmail',
+                name: 'email',
                 message: questions[2],
                 validate: questionInput => {
-                    if (questionInput) { return true; } else { console.log('Please enter your email address!!'); return false; }
+                    if (emailRegex.test(questionInput)) { return true; } else { console.log('Please enter your email address!!'); return false; }
                 }
             },
             {
                 type: 'text',
-                name: 'internSchool',
+                name: 'school',
                 message: questions[4],
                 validate: questionInput => {
                     if (questionInput) { return true; } else { console.log('Please enter your School Name!!'); return false; }
                 }
-            })
-        .then(({ internName, internID, internEmail, internSchool }) => {
-            this.Intern = new Intern(internName, internID, internEmail, internSchool)
-            this.addNew();
+            }
+        ])
+        .then(answers => {
+            const { name, id, email, school } = answers;
+            const intern = new Intern(name, id, email, school);
+            team.push(intern);
+            addNew();
         })
 }
 
@@ -162,11 +174,11 @@ function addNew() {
     ======================
     `);
 
-    inquirer
+    return inquirer
         .prompt({
             type: 'list',
             name: 'addOrFinish',
-            choice: ['Add New Engineer', 'Add New Intern', 'Finish the Building Team']
+            choices: ['Add New Engineer', 'Add New Intern', 'Finish the Building Team']
         })
         .then(({ addOrFinish }) => {
             if (addOrFinish === 'Add New Engineer') {
@@ -176,6 +188,7 @@ function addNew() {
             } else {
                 console.log('You are done with building team.. Thanks!');
                 console.log('You can find the index.html inside the dist folder');
+                console.log(team)
             }
         })
 }
