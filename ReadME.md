@@ -36,4 +36,4 @@ For contribution, you can reach me out from email or github.
 
 Any addittional questions, You can reach me at https://github.com/egemenelz
 
-<img src="./src/image/Screen%20Shot%202022-05-23%20at%2010.42.55%20PM.png" alt="Project Image" width="200"/>
+<img src="./src/image/Screen%20Shot%202022-05-23%20at%2010.42.55%20PM.png" alt="Project Image" width="400"/>
